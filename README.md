@@ -58,7 +58,7 @@ measure_hallucination/
 
 =>**[Main Project README](https://github.com/Tgy-12/Neurostack-RAG-Copilot/README.md):** This provides Overview of the complete Neurostack.
 
-=>**[Neurostack_hallucination](https://github.com/Tgy-12/Neurostack-RAG-Copilot/measure_hallucn):** Overview of the complete Neurostack .
+=>**[Neurostack_hallucination](https://github.com/Tgy-12/Neurostack-RAG-Copilot/measure_hallucn):** Overview of the complete Neurostack's hallucination .
  
  ##Performance
  -*Hallucination detection accuracy: >85%*
