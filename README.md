@@ -52,8 +52,9 @@ measure_hallucination/
 ├── tests/           # Unit tests
 └── README.md        # This file
 ```
-#Related project
- 🧠Tgy-12/Neurostack-RAG-Copilot: Main RAG system using this toolkit.
+🔗 Related Projects
+**🧠Neurostack-RAG-Copilot** for external GitHub URLs: [`https://github.com/Tgy-12/Neurostack-RAG-Copilot`]
+📊 Main Project README: Overview of the complete Neurostack s
  
  ##Performance
  -*Hallucination detection accuracy: >85%*
