@@ -1,0 +1,61 @@
+# Confidence Thresholds
+confidence_thresholds:
+  high: 0.8    # Direct answer provided
+  medium: 0.5  # Answer with disclaimer
+  low: 0.0     # Fallback response
+
+# Retrieval Parameters
+retrieval_parameters:
+  top_k: 5                     # Number of documents to retrieve
+  similarity_threshold: 0.7    # Minimum similarity for relevance
+  hybrid_weight_bm25: 0.4      # Weight for BM25 in hybrid retrieval
+  hybrid_weight_faiss: 0.6     # Weight for FAISS in hybrid retrieval
+  expansion_factor: 2          # Context expansion multiplier
+
+# Validation Parameters
+validation_parameters:
+  min_context_overlap: 0.3     # Minimum word overlap for claim verification
+  max_answer_length: 500       # Maximum answer length in characters
+  require_citation: true       # Whether to require citations
+  enable_fallback: true        # Enable fallback responses
+  fallback_message: "I cannot provide a confident answer based on the available information."
+
+# Detection Parameters
+detection_parameters:
+  rule_based_weight: 0.2       # Weight for rule-based detection
+  ml_based_weight: 0.2         # Weight for ML-based detection
+  faithfulness_weight: 0.35    # Weight for faithfulness metrics
+  relevance_weight: 0.25       # Weight for relevance metrics
+  high_risk_threshold: 0.7     # Threshold for high risk classification
+  medium_risk_threshold: 0.4   # Threshold for medium risk classification
+
+# Prompt Engineering
+prompt_templates:
+  default: "strict_context_only"
+  domains:
+    medical: "medical_legal"
+    legal: "medical_legal"
+    general: "confidence_based"
+    technical: "step_by_step"
+
+# Model Parameters
+model_parameters:
+  embedding_model: "all-MiniLM-L6-v2"
+  bm25_tokenization: "word"    # word, character, or subword
+  cache_embeddings: true       # Cache embeddings for performance
+  batch_size: 32              # Batch size for processing
+
+# Monitoring Parameters
+monitoring_parameters:
+  alert_threshold: 0.3         # Alert if hallucination rate > 30%
+  dashboard_refresh: 60        # Dashboard refresh rate in seconds
+  log_level: "INFO"           # DEBUG, INFO, WARNING, ERROR
+  enable_slack_alerts: false
+  enable_email_alerts: false
+
+# Evaluation Parameters
+evaluation_parameters:
+  test_set_size: 100          # Default test set size
+  benchmark_datasets: ["hotpot_qa", "squad", "truthful_qa"]
+  metrics_to_track: ["faithfulness", "relevance", "consistency", "hallucination_score"]
+  save_format: "json"         # json, csv, or parquet
