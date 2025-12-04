@@ -284,4 +284,99 @@ class EvaluationSuite:
             report.append("")
         
         # Risk distribution
-        if 'summary' in results and 'risk_distribution' in results['summary']
+        if 'summary' in results and 'risk_distribution' in results['summary']:
+            report.append("## ⚠️ Risk Distribution")
+            report.append("")
+            for risk, count in results['summary']['risk_distribution'].items():
+                report.append(f"- **{risk}**: {count} examples")
+            report.append("")
+        
+        # Recommendations
+        if 'detailed_results' in results and results['detailed_results']:
+            report.append("## 🎯 Top Recommendations")
+            report.append("")
+            
+            # Get unique recommendations
+            all_recommendations = []
+            for result in results['detailed_results']:
+                if 'recommendations' in result:
+                    all_recommendations.extend(result['recommendations'])
+            
+            # Count frequency
+            from collections import Counter
+            rec_counts = Counter(all_recommendations)
+            
+            for rec, count in rec_counts.most_common(5):
+                report.append(f"1. {rec} ({count} occurrences)")
+            report.append("")
+        
+        return "\n".join(report)
+    
+    def _generate_html_report(self, results: Dict) -> str:
+        """Generate HTML report (simplified version)"""
+        html = """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Hallucination Evaluation Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 40px; }
+                h1 { color: #333; }
+                table { border-collapse: collapse; width: 100%; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+                .good { color: green; }
+                .warning { color: orange; }
+                .bad { color: red; }
+            </style>
+        </head>
+        <body>
+            <h1>Hallucination Evaluation Report</h1>
+            <p>Generated: """ + pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S') + """</p>
+        """
+        
+        if 'summary' in results:
+            summary = results['summary']
+            html += """
+            <h2>Summary Statistics</h2>
+            <table>
+                <tr><th>Metric</th><th>Value</th><th>Status</th></tr>
+            """
+            
+            # Helper function to determine status
+            def get_status(value, metric):
+                if metric == 'hallucination_rate':
+                    if value < 0.1: return '<span class="good">✓ Good</span>'
+                    elif value < 0.3: return '<span class="warning">⚠ Warning</span>'
+                    else: return '<span class="bad">✗ Poor</span>'
+                elif metric == 'avg_faithfulness':
+                    if value > 0.8: return '<span class="good">✓ Good</span>'
+                    elif value > 0.6: return '<span class="warning">⚠ Warning</span>'
+                    else: return '<span class="bad">✗ Poor</span>'
+                else:
+                    return ''
+            
+            metrics = [
+                ('Total Examples', summary.get('total_examples', 0), ''),
+                ('Average Inference Time', f"{summary.get('avg_inference_time', 0):.3f}s", ''),
+                ('Average Faithfulness', f"{summary.get('avg_faithfulness', 0):.1%}", 
+                 get_status(summary.get('avg_faithfulness', 0), 'avg_faithfulness')),
+                ('Hallucination Rate', f"{summary.get('hallucination_rate', 0):.1%}", 
+                 get_status(summary.get('hallucination_rate', 0), 'hallucination_rate')),
+                ('Detection Accuracy', f"{summary.get('detection_accuracy', 0):.1%}", ''),
+                ('Overall Score', f"{summary.get('overall_score', 0):.3f}", '')
+            ]
+            
+            for name, value, status in metrics:
+                html += f"<tr><td>{name}</td><td>{value}</td><td>{status}</td></tr>"
+            
+            html += "</table>"
+        
+        html += """
+        </body>
+        </html>
+        """
+        
+        return html
+
+
