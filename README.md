@@ -1,20 +1,20 @@
-###🧠 Hallucination Measurement & Mitigation Toolkit
+## *Hallucination Measurement & Mitigation Toolkit*
 
-# **Introduction**
+# *Introduction*
 
 *Hallucination_measure* is a comprehensive toolkit specifically developed for measuring, analyzing, and mitigating hallucination in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) systems. This project was built as a core component of the [Neurostack-RAG-Copilot](https://github.com/Tgy-12/Neurostack-RAG-Copilot) ecosystem to ensure reliable, trustworthy AI responses.
 
-## 📋 Overview
+##  Overview
 A comprehensive toolkit for measuring, analyzing, and mitigating hallucination in Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) systems. Part of the **Neurostack-RAG-Copilot** ecosystem.
 
-## 🎯 Features
+##  Features
 - **Multi-metric analysis**: Faithfulness, relevance, consistency scoring
 - **Hybrid detection**: Rule-based + ML-based hallucination detection
 - **Mitigation strategies**: Prompt engineering, retrieval augmentation, post-processing
 - **Evaluation suite**: Benchmarking and performance evaluation
 - **Production ready**: Configurable thresholds, monitoring, visualization
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 ```bash
@@ -56,7 +56,7 @@ measure_hallucination/
 ```
 🔗 Related Projects
 
-=>**🧠[Neurostack-RAG-Copilot](https://github.com/Tgy-12/Neurostack-RAG-Copilot):** This provide the main Neurostack-RAG-Copilot project.
+=>**[Neurostack-RAG-Copilot](https://github.com/Tgy-12/Neurostack-RAG-Copilot):** This provide the main Neurostack-RAG-Copilot project.
 
 =>**[Main Project README](https://github.com/Tgy-12/Neurostack-RAG-Copilot/README.md):** This provides Overview of the complete Neurostack.
 
