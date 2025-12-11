@@ -1,4 +1,3 @@
-# measure_hallucination/detectors/rule_based.py
 import re
 from typing import Dict, List, Tuple
 import nltk
