@@ -1,4 +1,3 @@
-# measure_hallucination/metrics/composite.py
 from typing import Dict
 from .faithfulness import FaithfulnessMetrics
 from .relevance import RelevanceMetrics
