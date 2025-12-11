@@ -1,4 +1,3 @@
-# measure_hallucination/examples/basic_usage.py
 """
 Basic usage example for the Hallucination Measurement Toolkit
 """
