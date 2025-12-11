@@ -1,4 +1,3 @@
-# measure_hallucination/detectors/ml_based.py
 import numpy as np
 from typing import Dict
 from sentence_transformers import SentenceTransformer
