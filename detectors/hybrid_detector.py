@@ -1,4 +1,3 @@
-# measure_hallucination/detectors/hybrid_detector.py
 from typing import Dict
 from ..metrics.faithfulness import FaithfulnessMetrics
 from ..metrics.relevance import RelevanceMetrics
