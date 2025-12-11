@@ -1,4 +1,3 @@
-# measure_hallucination/evaluation/evaluation_suite.py
 import time
 from typing import Dict, List, Any, Optional
 import pandas as pd
