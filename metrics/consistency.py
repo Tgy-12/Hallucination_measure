@@ -1,4 +1,3 @@
-# measure_hallucination/metrics/consistency.py
 import numpy as np
 from typing import List, Dict
 from sentence_transformers import SentenceTransformer
