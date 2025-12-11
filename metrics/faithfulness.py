@@ -1,4 +1,3 @@
-# measure_hallucination/metrics/faithfulness.py
 import re
 from typing import List, Tuple, Dict
 import numpy as np
