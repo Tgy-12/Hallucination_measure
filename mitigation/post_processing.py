@@ -1,4 +1,3 @@
-# measure_hallucination/mitigation/post_processing.py
 from typing import Dict, List, Tuple, Optional
 import re
 from ..metrics.faithfulness import FaithfulnessMetrics
