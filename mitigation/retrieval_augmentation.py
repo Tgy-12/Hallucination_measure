@@ -1,4 +1,3 @@
-# measure_hallucination/mitigation/retrieval_augmentation.py
 from typing import List, Dict, Tuple
 import numpy as np
 from sentence_transformers import SentenceTransformer
